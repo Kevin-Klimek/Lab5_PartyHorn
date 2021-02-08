@@ -1,5 +1,4 @@
 // main.js
-
 let audio = document.getElementById("horn-sound");
 let image = document.getElementById("sound-image");
 let volumeImage = document.getElementById("volume-image");
@@ -13,26 +12,26 @@ document.getElementById("radio-party-horn").addEventListener("change", changePar
 volumeNumber.addEventListener("change", changeSlider);
 volumeSlider.addEventListener("change", changeNumber);
 
-document.getElementById("party-horn-form").addEventListener("submit", playHorn);
-//document.getElementById("honk-btn").onclick = function(){audio.play()};
+// Honk functionality to play the sound and prevent refreshing when submitting form.
+document.getElementById("party-horn-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    audio.play();
+});
 
 // Radio button functions
 function changeAirHorn() {
     audio.src = "./assets/media/audio/air-horn.mp3";
     image.src = "./assets/media/images/air-horn.svg";
-    //audio.play();
 }
 
 function changeCarHorn() {
     audio.src = "./assets/media/audio/car-horn.mp3";
     image.src = "./assets/media/images/car.svg";
-    //audio.play();
 }
 
 function changePartyHorn() {
     audio.src = "./assets/media/audio/party-horn.mp3";
     image.src = "./assets/media/images/party-horn.svg";
-    //audio.play();
 }
 
 // Volume adjustment functionality
@@ -66,10 +65,4 @@ function updateVolumeVisuals(vol) {
         volumeImage.src = "./assets/media/icons/volume-level-0.svg";
         button.disabled = true;
     }
-}
-
-// Honk button functionality
-function playHorn() {
-    //console.log(audio.src);
-    audio.play();
 }
