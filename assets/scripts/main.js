@@ -9,8 +9,8 @@ document.getElementById("radio-air-horn").addEventListener("change", changeAirHo
 document.getElementById("radio-car-horn").addEventListener("change", changeCarHorn);
 document.getElementById("radio-party-horn").addEventListener("change", changePartyHorn);
 
-volumeNumber.addEventListener("change", changeSlider);
-volumeSlider.addEventListener("change", changeNumber);
+volumeNumber.addEventListener("input", changeSlider);
+volumeSlider.addEventListener("input", changeNumber);
 
 // Honk functionality to play the sound and prevent refreshing when submitting form.
 document.getElementById("party-horn-form").addEventListener("submit", function(event) {
